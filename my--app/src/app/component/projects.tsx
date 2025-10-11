@@ -119,14 +119,14 @@ const ProjectsPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen text-white py-20 px-6">
+    <div className="min-h-screen text-white py-20 px-6 bg-black">
       <div className="max-w-7xl mx-auto">
         {/* Simple Header */}
         <div className={`text-center mb-16 transform transition-all duration-1000 ${
           isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
         }`}>
           <h2 className="text-5xl lg:text-6xl font-bold mb-6">
-            My <span className="text-transparent bg-gradient-to-r from-purple-400 to-purple-600 bg-clip-text">Projects</span>
+            My <span className="gradient-text">Projects</span>
           </h2>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
             Explore my latest work in web development and technology

@@ -1,8 +1,20 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Solid black background - no animations */
+  --background: #000000;
+  --foreground: #e6e6e9;
+  --muted: #9a9aa0;
+
+  /* Neon gradient stops (user provided) */
+  --neon-start: #DF8908;
+  --neon-end: #B415FF;
+  --neon-angle: 264deg;
+
+  /* Glow settings */
+  --neon-glow-1: rgba(223,137,8,0.18);
+  --neon-glow-2: rgba(180,21,255,0.14);
+  --neon-duration: 260ms;
 }
 
 @theme inline {
@@ -14,20 +26,21 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #000000;
     --foreground: #ededed;
   }
 }
 
 body {
-  background: var(--background);
+  /* Pure black background - no animations */
+  background: #000000;
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
 }
 
 /* Subtle floating animation for profile image */
 .animate-float {
-  animation: float 6s ease-in-out infinite;
+  animation: float 6s cubic-bezier(.22,.9,.38,1) infinite;
   will-change: transform;
 }
 
@@ -50,13 +63,81 @@ body {
   }
 }
 
-/* Radial glowing light behind profile picture */
+/* Radial glowing light behind profile picture (updated to user's gradient stops) */
 .glow-radial {
-  background: radial-gradient(circle at 50% 40%, rgba(139,92,246,0.25), rgba(139,92,246,0.12) 30%, transparent 60%);
+  /* Neon glow using user gradient stops */
+  background: radial-gradient(circle at 50% 40%, var(--neon-glow-1), var(--neon-glow-2) 30%, transparent 60%);
   filter: blur(20px);
   opacity: 0.95;
   animation: pulse 3.5s ease-in-out infinite;
   will-change: opacity, transform, filter;
+}
+
+/* Gradient text utility (use sparingly) */
+.gradient-text {
+  background: linear-gradient(var(--neon-angle), var(--neon-start) -5.09%, var(--neon-end) 106.28%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Neon button utility */
+.btn-neon {
+  background: linear-gradient(var(--neon-angle), rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+  color: var(--foreground);
+  border: 1px solid rgba(255,255,255,0.06);
+  padding: 0.6rem 1rem;
+  border-radius: 10px;
+  box-shadow: 0 6px 20px rgba(180,21,255,0.06), 0 2px 8px rgba(223,137,8,0.04);
+  transition: transform var(--neon-duration) ease, box-shadow var(--neon-duration) ease;
+}
+
+.btn-neon:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 10px 30px rgba(180,21,255,0.14), 0 6px 20px rgba(223,137,8,0.08);
+}
+
+.icon-neon { 
+  /* helper to color icons with neon start color */
+  color: var(--neon-start);
+}
+
+/* Thin neon underline (for nav/headers) */
+.neon-underline {
+  background: linear-gradient(var(--neon-angle), var(--neon-start), var(--neon-end));
+}
+
+/* Small badge with neon gradient */
+.neon-badge {
+  background: linear-gradient(var(--neon-angle), var(--neon-start), var(--neon-end));
+  color: white;
+}
+/* Link hover using neon gradient underline */
+a {
+  color: var(--foreground);
+  text-decoration: none;
+  position: relative;
+}
+
+a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  height: 2px;
+  width: 0;
+  background: linear-gradient(var(--neon-angle), var(--neon-start), var(--neon-end));
+  transition: width 200ms ease;
+}
+
+a:hover::after {
+  width: 100%;
+}
+
+/* Utility to apply neon outline glow on focus for accessibility */
+*:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(180,21,255,0.08);
 }
 
 @keyframes pulse {
@@ -84,3 +165,111 @@ body {
     opacity: 0.6 !important;
   }
 }
+
+/* --- MODERN NEON ANIMATIONS & COLORS (ENABLED) --- */
+/* Gradient text utility: use the user-specified gradient */
+.gradient-text {
+  background: linear-gradient(var(--neon-angle), var(--neon-start) -5.09%, var(--neon-end) 106.28%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* Stronger glow for profile and hero elements */
+.glow-radial {
+  background: radial-gradient(circle at 50% 40%, var(--neon-glow-1), var(--neon-glow-2) 28%, transparent 58%);
+  filter: blur(28px);
+  opacity: 0.95;
+  animation: pulse 3s ease-in-out infinite;
+  will-change: transform, opacity, filter;
+}
+
+/* Enhanced neon button and micro-interactions */
+:root { --neon-duration-fast: 160ms; --neon-duration: 220ms; }
+.btn-neon {
+  background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01));
+  color: white;
+  border: 1px solid rgba(255,255,255,0.06);
+  padding: 0.6rem 1.1rem;
+  border-radius: 9999px;
+  box-shadow: 0 10px 40px rgba(180,21,255,0.14), 0 6px 24px rgba(223,137,8,0.10);
+  transition: transform var(--neon-duration-fast) ease, box-shadow var(--neon-duration-fast) ease;
+}
+.btn-neon:hover { transform: translateY(-4px) scale(1.02); box-shadow: 0 22px 70px rgba(180,21,255,0.20), 0 12px 40px rgba(223,137,8,0.16); }
+
+.icon-neon { color: var(--neon-end); transition: color var(--neon-duration-fast) ease, transform var(--neon-duration-fast) ease; }
+.icon-neon:hover { color: var(--neon-start); transform: translateY(-2px); }
+
+.neon-underline { background: linear-gradient(var(--neon-angle), var(--neon-start), var(--neon-end)); }
+.neon-badge { background: linear-gradient(var(--neon-angle), var(--neon-start), var(--neon-end)); color: white; }
+
+/* Micro-lift helper for sharper interactions */
+.micro-lift { transition: transform var(--neon-duration-fast) ease, box-shadow var(--neon-duration-fast) ease; }
+.micro-lift:hover { transform: translateY(-3px); box-shadow: 0 14px 44px rgba(180,21,255,0.12); }
+
+/* Map common Tailwind purple utilities to neon equivalents */
+.text-purple-400, .text-purple-500, .text-purple-300, .text-purple-600 {
+  color: var(--neon-end) !important;
+}
+.bg-purple-600, .bg-purple-500, .bg-purple-400, .bg-purple-700 {
+  background: linear-gradient(var(--neon-angle), rgba(223,137,8,0.10), rgba(180,21,255,0.06)) !important;
+}
+.bg-purple-600\/10, .bg-purple-500\/80, .bg-purple-500\/20 {
+  background: linear-gradient(var(--neon-angle), rgba(223,137,8,0.06), rgba(180,21,255,0.04)) !important;
+}
+.border-purple-600, .border-purple-500, .border-purple-400 {
+  border-color: rgba(180,21,255,0.18) !important;
+}
+.from-purple-400, .via-purple-600, .to-purple-800 { --tw-gradient-from: var(--neon-start) !important; --tw-gradient-to: var(--neon-end) !important; }
+.shadow-purple-500\/30, .shadow-purple-500\/50, .shadow-purple-600\/50, .hover\:shadow-purple-600\/50:hover { --tw-shadow-color: rgba(180,21,255,0.14) !important; }
+
+/* Inline gradient utilities used for headers/lines adopt neon stops */
+.w-24.h-1.bg-gradient-to-r.from-purple-400.to-purple-800,
+.w-16.h-1.bg-gradient-to-r.from-purple-500.to-purple-600,
+.bg-gradient-to-br, [class*="from-purple"], [class*="to-purple"], [class*="via-purple"] {
+  background-image: linear-gradient(var(--neon-angle), var(--neon-start), var(--neon-end)) !important;
+  background: linear-gradient(var(--neon-angle), var(--neon-start), var(--neon-end)) !important;
+}
+
+/* Focus styles: neon ring for keyboard accessibility */
+*:focus { box-shadow: 0 0 0 6px rgba(180,21,255,0.12) !important; }
+
+/* Small helper animation utilities */
+.animate-gradient-shift { animation: gradientShift 6s linear infinite; background-size: 200% 200%; }
+@keyframes gradientShift { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+
+/* Faster pulse tuned for sharper effect */
+@keyframes pulse {
+  0% { transform: scale(0.98); opacity: 0.82; filter: blur(18px); }
+  50% { transform: scale(1.06); opacity: 1; filter: blur(26px); }
+  100% { transform: scale(0.98); opacity: 0.82; filter: blur(18px); }
+}
+
+/* End Modern Neon animations block */
+
+/* --- DISABLE BACKGROUND / FULL-PAGE ANIMATIONS --- */
+/* Turn off any gradient-shift background animations and background-position/size transitions
+   but keep element-level glows and micro-interactions. This prevents full-page animated
+   backgrounds while preserving local animations (buttons, icons, profile glow). */
+.animate-gradient-shift {
+  animation: none !important;
+  background-size: auto !important;
+  background-position: initial !important;
+}
+
+/* Prevent animated gradient utilities from animating background position/size */
+[class*="bg-gradient-to-"], .bg-gradient-to-br, [class*="from-"], [class*="via-"], [class*="to-"] {
+  animation: none !important;
+  transition: none !important;
+  background-size: auto !important;
+  background-position: initial !important;
+}
+
+/* Ensure body has no animations applied */
+body {
+  animation: none !important;
+  transition: none !important;
+}
+
+/* End background animation disable block */

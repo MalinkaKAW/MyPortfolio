@@ -73,12 +73,12 @@ const ServicesPage: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen text-white py-20 px-6 overflow-hidden">
+    <div className="min-h-screen text-white py-20 px-6 overflow-hidden bg-black">
       <div className="max-w-7xl mx-auto">
         {/* Header Section */}
-        <div className={`text-center mb-20 transform transition-all duration-1200 ease-out ${isVisible ? 'translate-y-0 opacity-100' : '-translate-y-16 opacity-0'}`}>
-          <h2 className="text-5xl lg:text-6xl font-bold mb-6 animate-text-shimmer">
-            My <span className="text-transparent bg-gradient-to-r from-purple-400 via-purple-600 to-purple-800 bg-clip-text">Services</span>
+          <div className={`text-center mb-20 transform transition-all duration-1200 ease-out ${isVisible ? 'translate-y-0 opacity-100' : '-translate-y-16 opacity-0'}`}>
+          <h2 className="text-5xl lg:text-6xl font-bold mb-6">
+            My <span className="gradient-text">Services</span>
           </h2>
           <div className={`w-24 h-1 bg-gradient-to-r from-purple-400 to-purple-800 mx-auto rounded-full transform transition-all duration-1000 delay-300 ${isVisible ? 'scale-x-100' : 'scale-x-0'}`}></div>
         </div>
@@ -99,10 +99,10 @@ const ServicesPage: React.FC = () => {
                   
                   {/* Background Effects */}
                   <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
-                    <div className="absolute inset-0 bg-gradient-to-br from-purple-600/5 via-purple-700/3 to-transparent animate-gradient-shift rounded-2xl"></div>
+                    <div className="absolute inset-0 bg-gradient-to-br from-purple-600/5 via-purple-700/3 to-transparent rounded-2xl"></div>
                   </div>
                   <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-700">
-                    <div className="absolute -inset-2 bg-gradient-to-r from-purple-400/10 via-purple-600/15 to-purple-800/10 blur-2xl rounded-2xl animate-pulse-soft"></div>
+                    <div className="absolute -inset-2 bg-gradient-to-r from-purple-400/10 via-purple-600/15 to-purple-800/10 blur-2xl rounded-2xl"></div>
                   </div>
 
                   {/* Content */}
@@ -154,7 +154,7 @@ const ServicesPage: React.FC = () => {
                   </div>
 
                   <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-all duration-700">
-                    <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-purple-400/20 via-purple-600/30 to-purple-400/20 p-[1px] animate-border-flow">
+                    <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-purple-400/20 via-purple-600/30 to-purple-400/20 p-[1px]">
                       <div className="w-full h-full rounded-2xl bg-transparent"></div>
                     </div>
                   </div>
@@ -164,17 +164,6 @@ const ServicesPage: React.FC = () => {
           })}
         </div>
       </div>
-
-      <style jsx>{`
-        @keyframes gradient-shift { 0%,100%{background-position:0% 50%}50%{background-position:100% 50%} }
-        @keyframes pulse-soft { 0%,100%{opacity:0.1;transform:scale(1);}50%{opacity:0.2;transform:scale(1.02);} }
-        @keyframes border-flow { 0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%} }
-        @keyframes text-shimmer { 0%,100%{background-position:0% 50%}50%{background-position:100% 50%} }
-        .animate-gradient-shift{background-size:200% 200%;animation:gradient-shift 8s ease infinite;}
-        .animate-pulse-soft{animation:pulse-soft 4s ease-in-out infinite;}
-        .animate-border-flow{background-size:200% 200%;animation:border-flow 3s linear infinite;}
-        .animate-text-shimmer{background-size:200% 200%;animation:text-shimmer 6s ease-in-out infinite;}
-      `}</style>
     </div>
   );
 };

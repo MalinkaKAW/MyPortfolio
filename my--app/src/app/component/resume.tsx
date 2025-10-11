@@ -173,19 +173,19 @@ const ResumePage: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen text-white py-20 px-6">
+    <div className="min-h-screen text-white py-20 px-6 bg-black">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className={`text-center mb-20 transform transition-all duration-1200 ease-out ${isVisible ? 'translate-y-0 opacity-100' : '-translate-y-16 opacity-0'}`}>
           <h1 className="text-5xl lg:text-6xl font-bold mb-6">
-            My <span className="text-transparent bg-gradient-to-r from-purple-400 via-purple-600 to-purple-800 bg-clip-text">Resume</span>
+            My <span className="gradient-text">Resume</span>
           </h1>
           <div className={`w-24 h-1 bg-gradient-to-r from-purple-400 to-purple-800 mx-auto rounded-full transform transition-all duration-1000 delay-300 ${isVisible ? 'scale-x-100' : 'scale-x-0'}`}></div>
         </div>
 
         {/* Skills Section */}
         <div className={`mb-20 transform transition-all duration-1000 ease-out ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'}`} style={{ transitionDelay: '400ms' }}>
-          <h2 className="text-4xl font-bold text-center mb-16 bg-gradient-to-r from-purple-400 via-purple-500 to-purple-600 bg-clip-text text-transparent">My Skills</h2>
+          <h2 className="text-4xl font-bold text-center mb-16 gradient-text">My Skills</h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {skillCategories.map((category, categoryIndex) => (

@@ -105,14 +105,14 @@ const ContactPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen text-white py-20 px-6">
+    <div className="min-h-screen text-white py-20 px-6 bg-black">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className={`text-center mb-16 transform transition-all duration-1200 ease-out ${
           isVisible ? 'translate-y-0 opacity-100' : '-translate-y-16 opacity-0'
         }`}>
           <h1 className="text-4xl lg:text-5xl font-bold mb-6">
-            Let&apos;s <span className="text-transparent bg-gradient-to-r from-purple-400 via-purple-600 to-purple-800 bg-clip-text">work together</span>
+            Let&apos;s <span className="gradient-text">work together</span>
           </h1>
           <div className={`w-24 h-1 bg-gradient-to-r from-purple-400 to-purple-800 mx-auto rounded-full transform transition-all duration-1000 delay-300 ${
             isVisible ? 'scale-x-100' : 'scale-x-0'
@@ -237,7 +237,7 @@ const ContactPage: React.FC = () => {
               <button
                 onClick={handleSubmit}
                 disabled={isSubmitting}
-                className="w-full py-4 bg-purple-600 hover:bg-purple-700 disabled:bg-purple-600/50 text-white font-semibold rounded-lg transition-all duration-300 transform hover:scale-[1.02] hover:shadow-xl hover:shadow-purple-600/50 disabled:transform-none disabled:shadow-none flex items-center justify-center gap-3"
+                className="w-full py-4 btn-neon disabled:opacity-60 text-white font-semibold rounded-lg transition-all duration-300 transform hover:scale-[1.02] disabled:transform-none flex items-center justify-center gap-3"
               >
                 {isSubmitting ? (
                   <>

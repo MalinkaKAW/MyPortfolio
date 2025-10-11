@@ -56,18 +56,18 @@ const MyselfPage: React.FC = () => {
   const goToImage = (index: number) => setCurrentImageIndex(index);
 
   return (
-    <div className="min-h-screen text-white py-20 px-6 overflow-hidden">
+    <div className="min-h-screen text-white py-20 px-6 overflow-hidden bg-black">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className={`text-center mb-16 transform transition-all duration-1200 ease-out ${
           isVisible ? 'translate-y-0 opacity-100' : '-translate-y-16 opacity-0'
         }`}>
           <h1 className="text-5xl lg:text-6xl font-bold mb-6">
-            <span className="text-transparent bg-gradient-to-r from-purple-400 via-purple-600 to-purple-800 bg-clip-text">
+            <span className="gradient-text">
               Myself
             </span>
           </h1>
-          <div className={`w-24 h-1 bg-gradient-to-r from-purple-400 to-purple-800 mx-auto rounded-full transform transition-all duration-1000 delay-300 ${
+          <div className={`w-24 h-1 neon-underline mx-auto rounded-full transform transition-all duration-1000 delay-300 ${
             isVisible ? 'scale-x-100' : 'scale-x-0'
           }`}></div>
           <p className="text-gray-400 mt-6 text-lg max-w-2xl mx-auto">

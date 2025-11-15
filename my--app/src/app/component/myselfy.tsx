@@ -20,7 +20,7 @@ const MyselfPage: React.FC = () => {
   // Photos array should be defined before useEffect
   const photos: Photo[] = [
     { id: 1, src: "/images/07.jpeg", title: "My Achievements", description: "With my amazing teammates during our university sports event", category: "Sports" },
-    { id: 2, src: "/images/01.jpeg", title: "Achievement Moment", description: "Joined WSO2 session", category: "Academic" },
+    { id: 2, src: "/images/01.jpg", title: "Achievement Moment", description: "Joined WSO2 session", category: "Academic" },
     { id: 3, src: "/images/02.jpeg", title: "Conference Time", description: "AGM Leo Club of University Of Moratuwa", category: "Leo" },
     { id: 4, src: "/images/03.jpeg", title: "Achievement Moment", description: "With my amazing teammates during our university sports event", category: "Sport" },
     { id: 5, src: "/images/04.jpeg", title: "Achivement Moment", description: "Most Outstand Director in UoM Leo club", category: "Leo" },
@@ -63,13 +63,13 @@ const MyselfPage: React.FC = () => {
           isVisible ? 'translate-y-0 opacity-100' : '-translate-y-16 opacity-0'
         }`}>
           <h1 className="text-5xl lg:text-6xl font-bold mb-6">
-            <span className="text-transparent bg-gradient-to-r from-purple-400 via-purple-600 to-purple-800 bg-clip-text">
+            <span className="gradient-text">
               Myself
             </span>
           </h1>
-          <div className={`w-24 h-1 bg-gradient-to-r from-purple-400 to-purple-800 mx-auto rounded-full transform transition-all duration-1000 delay-300 ${
+          <div className={`w-24 h-1 mx-auto rounded-full transform transition-all duration-1000 delay-300 ${
             isVisible ? 'scale-x-100' : 'scale-x-0'
-          }`}></div>
+          }`} style={{background: 'linear-gradient(to right, var(--gradient-mid), var(--gradient-end), var(--gradient-start))'}}></div>
           <p className="text-gray-400 mt-6 text-lg max-w-2xl mx-auto">
             A glimpse into my journey, memories, and moments that define who I am.
           </p>
@@ -112,9 +112,12 @@ const MyselfPage: React.FC = () => {
                   >
                     <div className={`relative rounded-2xl overflow-hidden border-4 transition-all duration-500 ${
                       position === 0 
-                        ? 'border-purple-500 shadow-2xl shadow-purple-500/30' 
-                        : 'border-gray-600/50 hover:border-purple-400/70'
-                    }`}>
+                        ? 'shadow-2xl' 
+                        : 'hover:border-gray-400/70'
+                    }`} style={{
+                      borderColor: position === 0 ? (index % 3 === 0 ? 'var(--gradient-start)' : index % 3 === 1 ? 'var(--gradient-mid)' : 'var(--gradient-end)') : 'rgb(107, 114, 128, 0.5)',
+                      boxShadow: position === 0 ? (index % 3 === 0 ? '0 0 30px rgba(183, 29, 238, 0.3)' : index % 3 === 1 ? '0 0 30px rgba(201, 77, 135, 0.3)' : '0 0 30px rgba(216, 118, 49, 0.3)') : 'none'
+                    }}>
                       <Image
                         src={photo.src}
                         alt={photo.title}
@@ -147,21 +150,30 @@ const MyselfPage: React.FC = () => {
             </div>
 
             {/* Navigation Arrows */}
-            <button onClick={prevImage} className="absolute left-4 top-1/2 -translate-y-1/2 z-40 p-3 bg-black/50 hover:bg-purple-600/80 rounded-full border border-gray-600 hover:border-purple-500 transition-all duration-300 hover:scale-110 backdrop-blur-sm">
+            <button onClick={prevImage} className="absolute left-4 top-1/2 -translate-y-1/2 z-40 p-3 bg-black/50 rounded-full border transition-all duration-300 hover:scale-110 backdrop-blur-sm" style={{
+              borderColor: 'var(--gradient-start)',
+              backgroundColor: 'rgb(0, 0, 0, 0.5)'
+            }} onMouseEnter={(e) => e.currentTarget.style.background = 'linear-gradient(135deg, var(--gradient-start)/50, var(--gradient-mid)/30)'} onMouseLeave={(e) => e.currentTarget.style.background = 'rgb(0, 0, 0, 0.5)'}>
               <ChevronLeft size={24} className="text-white" />
             </button>
-            <button onClick={nextImage} className="absolute right-4 top-1/2 -translate-y-1/2 z-40 p-3 bg-black/50 hover:bg-purple-600/80 rounded-full border border-gray-600 hover:border-purple-500 transition-all duration-300 hover:scale-110 backdrop-blur-sm">
+            <button onClick={nextImage} className="absolute right-4 top-1/2 -translate-y-1/2 z-40 p-3 bg-black/50 rounded-full border transition-all duration-300 hover:scale-110 backdrop-blur-sm" style={{
+              borderColor: 'var(--gradient-end)',
+              backgroundColor: 'rgb(0, 0, 0, 0.5)'
+            }} onMouseEnter={(e) => e.currentTarget.style.background = 'linear-gradient(135deg, var(--gradient-end)/50, var(--gradient-mid)/30)'} onMouseLeave={(e) => e.currentTarget.style.background = 'rgb(0, 0, 0, 0.5)'}>
               <ChevronRight size={24} className="text-white" />
             </button>
 
             {/* Auto-play Control */}
-            <button onClick={() => setIsAutoPlay(!isAutoPlay)} className="absolute top-4 right-4 z-40 p-3 bg-black/50 hover:bg-purple-600/80 rounded-full border border-gray-600 hover:border-purple-500 transition-all duration-300 hover:scale-110 backdrop-blur-sm">
+            <button onClick={() => setIsAutoPlay(!isAutoPlay)} className="absolute top-4 right-4 z-40 p-3 bg-black/50 rounded-full border transition-all duration-300 hover:scale-110 backdrop-blur-sm" style={{
+              borderColor: 'var(--gradient-mid)',
+              backgroundColor: 'rgb(0, 0, 0, 0.5)'
+            }} onMouseEnter={(e) => e.currentTarget.style.background = 'linear-gradient(135deg, var(--gradient-mid)/50, var(--gradient-end)/30)'} onMouseLeave={(e) => e.currentTarget.style.background = 'rgb(0, 0, 0, 0.5)'}>
               {isAutoPlay ? <Pause size={20} className="text-white" /> : <Play size={20} className="text-white" />}
             </button>
 
             {/* Photo Counter */}
             <div className="absolute top-4 left-4 z-40 flex items-center gap-2 px-4 py-2 bg-black/50 rounded-full border border-gray-600 backdrop-blur-sm">
-              <Camera size={16} className="text-purple-400" />
+              <Camera size={16} style={{color: 'var(--gradient-start)'}} />
               <span className="text-white text-sm font-medium">
                 {currentImageIndex + 1} / {photos.length}
               </span>
@@ -188,7 +200,7 @@ const MyselfPage: React.FC = () => {
                   className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
                 />
                 {index === currentImageIndex && (
-                  <div className="absolute inset-0 bg-purple-500/20"></div>
+                  <div style={{background: 'linear-gradient(135deg, var(--gradient-start)/20, var(--gradient-mid)/20, var(--gradient-end)/20)'}} className="absolute inset-0"></div>
                 )}
               </button>
             ))}
@@ -197,10 +209,10 @@ const MyselfPage: React.FC = () => {
           {/* Progress Bar */}
           <div className="mt-8 mx-auto max-w-md">
             <div className="w-full bg-gray-800 rounded-full h-1 overflow-hidden">
-              <div 
-                className="h-full bg-gradient-to-r from-purple-500 to-purple-400 rounded-full transition-all duration-300"
-                style={{ width: `${((currentImageIndex + 1) / photos.length) * 100}%` }}
-              ></div>
+              <div className="h-full rounded-full transition-all duration-300" style={{
+              background: 'linear-gradient(to right, var(--gradient-start), var(--gradient-mid), var(--gradient-end))',
+              width: `${((currentImageIndex + 1) / photos.length) * 100}%`
+            }}></div>
             </div>
             <div className="flex justify-between mt-2 text-xs text-gray-400">
               <span>Journey Memories</span>

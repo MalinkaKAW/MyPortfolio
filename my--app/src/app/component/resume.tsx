@@ -98,18 +98,18 @@ const ResumePage: React.FC = () => {
     {
       id: 2,
       degree: "Advanced Level in Physical Science",
-      institution: "Rahula College Matara",
-      duration: "2019 - 2022",
-      logo: "/images/rcm.png",
-      description: "Mathematics, Physics, Chemistry - A & 2B passes"
+      institution: "Sujatha Vidyalaya Matara",
+      duration: "2021",
+      logo: "/images/svm.jpg",
+      description: "Mathematics, Chemistry, & Physics  - 2A & B passes"
     },
     {
       id: 3,
       degree: "Ordinary Level",
-      institution: "Kokawala Central College",
-      duration: "2007 - 2019",
-      logo: "/images/kcc.jpg",
-      description: "8A & 1B passes including Mathematics, Science, and English"
+      institution: "Sujatha Vidyalaya Matara",
+      duration: "2017",
+      logo: "/images/svm.jpg",
+      description: "9As"
     }
   ];
 
@@ -178,14 +178,14 @@ const ResumePage: React.FC = () => {
         {/* Header */}
         <div className={`text-center mb-20 transform transition-all duration-1200 ease-out ${isVisible ? 'translate-y-0 opacity-100' : '-translate-y-16 opacity-0'}`}>
           <h1 className="text-5xl lg:text-6xl font-bold mb-6">
-            My <span className="text-transparent bg-gradient-to-r from-purple-400 via-purple-600 to-purple-800 bg-clip-text">Resume</span>
+            My <span className="text-transparent bg-gradient-to-r from-orange-400 via-pink-400 to-purple-400 bg-clip-text">Resume</span>
           </h1>
-          <div className={`w-24 h-1 bg-gradient-to-r from-purple-400 to-purple-800 mx-auto rounded-full transform transition-all duration-1000 delay-300 ${isVisible ? 'scale-x-100' : 'scale-x-0'}`}></div>
+          <div className={`w-24 h-1 bg-gradient-to-r from-orange-400 via-pink-400 to-purple-400 mx-auto rounded-full transform transition-all duration-1000 delay-300 ${isVisible ? 'scale-x-100' : 'scale-x-0'}`}></div>
         </div>
 
         {/* Skills Section */}
         <div className={`mb-20 transform transition-all duration-1000 ease-out ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'}`} style={{ transitionDelay: '400ms' }}>
-          <h2 className="text-4xl font-bold text-center mb-16 bg-gradient-to-r from-purple-400 via-purple-500 to-purple-600 bg-clip-text text-transparent">My Skills</h2>
+          <h2 className="text-4xl font-bold text-center mb-16 text-white">My Skills</h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {skillCategories.map((category, categoryIndex) => (
@@ -195,7 +195,10 @@ const ResumePage: React.FC = () => {
                 style={{ transitionDelay: `${categoryIndex * 200}ms` }}
               >
                 {/* Category Card */}
-                <div className="relative bg-gradient-to-br from-slate-900/90 to-gray-900/90 backdrop-blur-sm border border-slate-700/50 rounded-lg p-8 hover:border-purple-500/50 hover:bg-gradient-to-br hover:from-slate-800/90 hover:to-gray-800/90 transition-all duration-500 group-hover:transform group-hover:-translate-y-1 group-hover:shadow-xl group-hover:shadow-purple-500/20">
+                <div className="relative bg-gradient-to-br from-slate-900/90 to-gray-900/90 backdrop-blur-sm border border-slate-700/50 rounded-lg p-8 hover:bg-gradient-to-br hover:from-slate-800/90 hover:to-gray-800/90 transition-all duration-500 group-hover:transform group-hover:-translate-y-1 group-hover:shadow-xl" style={{
+                  borderColor: categoryIndex % 3 === 0 ? 'var(--gradient-start)' : categoryIndex % 3 === 1 ? 'var(--gradient-mid)' : 'var(--gradient-end)',
+                  boxShadow: categoryIndex % 3 === 0 ? '0 0 20px rgba(183, 29, 238, 0.1)' : categoryIndex % 3 === 1 ? '0 0 20px rgba(201, 77, 135, 0.1)' : '0 0 20px rgba(216, 118, 49, 0.1)'
+                }}>
                   
                   {/* Subtle glow effect */}
                   <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
@@ -237,7 +240,7 @@ const ResumePage: React.FC = () => {
                         
                         {/* Subtle border glow */}
                         <div className="absolute inset-0 rounded-xl opacity-0 group-hover/skill:opacity-100 transition-opacity duration-500">
-                          <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-purple-400/30 via-pink-400/30 to-purple-400/30 p-[1px]">
+                          <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-purple-400/30 via-purple-300/30 to-purple-400/30 p-[1px]">
                             <div className="w-full h-full rounded-xl bg-transparent"></div>
                           </div>
                         </div>
@@ -260,17 +263,27 @@ const ResumePage: React.FC = () => {
           <h2 className="text-3xl font-bold text-center mb-12">My Education</h2>
           <div className="space-y-6">
             {education.map((edu, index) => (
-              <div key={edu.id} className={`group relative bg-gradient-to-br from-gray-900/80 to-gray-800/60 backdrop-blur-lg rounded-2xl border border-gray-700/50 p-6 hover:border-purple-500/50 transition-all duration-500 transform hover:-translate-y-1 hover:shadow-xl hover:shadow-purple-500/20`} style={{ transitionDelay: `${index * 200}ms` }}>
+              <div key={edu.id} className={`group relative bg-gradient-to-br from-gray-900/80 to-gray-800/60 backdrop-blur-lg rounded-2xl border border-gray-700/50 p-6 transition-all duration-500 transform hover:-translate-y-1 hover:shadow-xl`} style={{
+                borderColor: index % 3 === 0 ? 'var(--gradient-start)' : index % 3 === 1 ? 'var(--gradient-mid)' : 'var(--gradient-end)',
+                boxShadow: index % 3 === 0 ? '0 0 20px rgba(183, 29, 238, 0.2)' : index % 3 === 1 ? '0 0 20px rgba(201, 77, 135, 0.2)' : '0 0 20px rgba(216, 118, 49, 0.2)',
+                transitionDelay: `${index * 200}ms`
+              }}>
                 <div className="flex items-center gap-6">
                   <div className="flex-shrink-0">
-                    <div className="w-20 h-20 rounded-full bg-gray-800/50 border border-gray-600/30 flex items-center justify-center overflow-hidden group-hover:border-purple-500/50 transition-all duration-300">
+                    <div className="w-20 h-20 rounded-full bg-gray-800/50 border flex items-center justify-center overflow-hidden transition-all duration-300" style={{
+                      borderColor: index % 3 === 0 ? 'var(--gradient-start)' : index % 3 === 1 ? 'var(--gradient-mid)' : 'var(--gradient-end)'
+                    }}>
                       <Image src={edu.logo} alt={edu.institution} width={64} height={64} className="object-contain rounded-full" />
                     </div>
                   </div>
                   <div className="flex-grow">
                     <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
-                      <h3 className="text-xl font-bold text-white group-hover:text-purple-300 transition-colors duration-300">{edu.degree}</h3>
-                      <div className="flex items-center gap-2 text-purple-400">
+                      <h3 className="text-xl font-bold text-white transition-colors duration-300" style={{
+                        color: index % 3 === 0 ? 'var(--gradient-start)' : index % 3 === 1 ? 'var(--gradient-mid)' : 'var(--gradient-end)'
+                      }}>{edu.degree}</h3>
+                      <div className="flex items-center gap-2" style={{
+                        color: index % 3 === 0 ? 'var(--gradient-start)' : index % 3 === 1 ? 'var(--gradient-mid)' : 'var(--gradient-end)'
+                      }}>
                         <Calendar size={16} />
                         <span className="text-sm font-medium">{edu.duration}</span>
                       </div>
@@ -282,7 +295,11 @@ const ResumePage: React.FC = () => {
                     <p className="text-gray-400 group-hover:text-gray-300 transition-colors duration-300">{edu.description}</p>
                     {edu.gpa && (
                       <div className="mt-2">
-                        <span className="inline-flex items-center px-3 py-1 bg-purple-600/20 text-purple-300 text-sm rounded-full border border-purple-500/30">
+                        <span className="inline-flex items-center px-3 py-1 text-sm rounded-full border" style={{
+                          backgroundColor: index % 3 === 0 ? 'rgba(183, 29, 238, 0.2)' : index % 3 === 1 ? 'rgba(201, 77, 135, 0.2)' : 'rgba(216, 118, 49, 0.2)',
+                          color: index % 3 === 0 ? 'var(--gradient-start)' : index % 3 === 1 ? 'var(--gradient-mid)' : 'var(--gradient-end)',
+                          borderColor: index % 3 === 0 ? 'var(--gradient-start)' : index % 3 === 1 ? 'var(--gradient-mid)' : 'var(--gradient-end)'
+                        }}>
                           GPA: {edu.gpa}
                         </span>
                       </div>
@@ -290,7 +307,9 @@ const ResumePage: React.FC = () => {
                   </div>
                 </div>
                 <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10">
-                  <div className="absolute inset-0 bg-gradient-to-r from-purple-500/5 to-purple-600/5 rounded-2xl"></div>
+                  <div className="absolute inset-0 rounded-2xl" style={{
+                    background: index % 3 === 0 ? 'linear-gradient(to right, var(--gradient-start)/5, var(--gradient-mid)/5)' : index % 3 === 1 ? 'linear-gradient(to right, var(--gradient-mid)/5, var(--gradient-end)/5)' : 'linear-gradient(to right, var(--gradient-end)/5, var(--gradient-start)/5)'
+                  }}></div>
                 </div>
               </div>
             ))}
@@ -304,15 +323,27 @@ const ResumePage: React.FC = () => {
             {activities.map((activity, index) => {
               const IconComponent = activity.icon;
               return (
-                <div key={activity.id} className="group relative bg-gradient-to-br from-gray-900/80 to-gray-800/60 backdrop-blur-lg rounded-2xl border border-gray-700/50 p-6 hover:border-purple-500/50 transition-all duration-500 transform hover:-translate-y-2 hover:shadow-xl hover:shadow-purple-500/20" style={{ transitionDelay: `${index * 150}ms` }}>
-                  <div className={`w-12 h-12 rounded-full bg-gradient-to-r ${activity.color} flex items-center justify-center mb-4 transform group-hover:scale-110 transition-transform duration-300`}>
+                <div key={activity.id} className="group relative bg-gradient-to-br from-gray-900/80 to-gray-800/60 backdrop-blur-lg rounded-2xl border border-gray-700/50 p-6 transition-all duration-500 transform hover:-translate-y-2 hover:shadow-xl" style={{
+                  borderColor: index % 3 === 0 ? 'var(--gradient-start)' : index % 3 === 1 ? 'var(--gradient-mid)' : 'var(--gradient-end)',
+                  boxShadow: index % 3 === 0 ? '0 0 20px rgba(183, 29, 238, 0.2)' : index % 3 === 1 ? '0 0 20px rgba(201, 77, 135, 0.2)' : '0 0 20px rgba(216, 118, 49, 0.2)',
+                  transitionDelay: `${index * 150}ms`
+                }}>
+                  <div className={`w-12 h-12 rounded-full flex items-center justify-center mb-4 transform group-hover:scale-110 transition-transform duration-300`} style={{
+                    background: index % 3 === 0 ? 'linear-gradient(135deg, var(--gradient-start), var(--gradient-mid))' : index % 3 === 1 ? 'linear-gradient(135deg, var(--gradient-mid), var(--gradient-end))' : 'linear-gradient(135deg, var(--gradient-end), var(--gradient-start))'
+                  }}>
                     <IconComponent size={24} className="text-white" />
                   </div>
-                  <h3 className="text-lg font-bold text-white group-hover:text-purple-300 transition-colors duration-300 mb-2">{activity.title}</h3>
-                  <p className="text-purple-400 font-medium mb-3">{activity.organization}</p>
+                  <h3 className="text-lg font-bold text-white transition-colors duration-300 mb-2" style={{
+                    color: index % 3 === 0 ? 'var(--gradient-start)' : index % 3 === 1 ? 'var(--gradient-mid)' : 'var(--gradient-end)'
+                  }}>{activity.title}</h3>
+                  <p className="font-medium mb-3" style={{
+                    color: index % 3 === 0 ? 'var(--gradient-start)' : index % 3 === 1 ? 'var(--gradient-mid)' : 'var(--gradient-end)'
+                  }}>{activity.organization}</p>
                   <p className="text-white/70 group-hover:text-white/90 transition-colors duration-300 text-sm leading-relaxed">{activity.description}</p>
                   <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10">
-                    <div className={`absolute inset-0 bg-gradient-to-r ${activity.color} opacity-5 rounded-2xl blur-xl`}></div>
+                    <div className={`absolute inset-0 rounded-2xl blur-xl`} style={{
+                      background: index % 3 === 0 ? 'linear-gradient(135deg, var(--gradient-start)/5, var(--gradient-mid)/5)' : index % 3 === 1 ? 'linear-gradient(135deg, var(--gradient-mid)/5, var(--gradient-end)/5)' : 'linear-gradient(135deg, var(--gradient-end)/5, var(--gradient-start)/5)'
+                    }}></div>
                   </div>
                 </div>
               );

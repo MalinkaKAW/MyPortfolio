@@ -41,8 +41,8 @@ export default function Home() {
           </div>
           
           {/* Gradient Overlays */}
-          <div className="absolute inset-0 bg-gradient-to-br from-purple-900/15 via-transparent to-indigo-900/15"></div>
-          <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-purple-800/10 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-purple-900/10 via-transparent to-purple-900/10"></div>
+          <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-purple-900/5 to-transparent"></div>
         </div>
       </div>
 
@@ -81,15 +81,15 @@ export default function Home() {
           position: absolute;
           background: linear-gradient(
             135deg,
-            rgba(139, 92, 246, 0.1),
-            rgba(168, 85, 247, 0.05),
+            rgba(42, 196, 183, 0.1),
+            rgba(69, 217, 204, 0.05),
             transparent
           );
-          border: 1px solid rgba(139, 92, 246, 0.2);
+          border: 1px solid rgba(42, 196, 183, 0.2);
           backdrop-filter: blur(5px);
           box-shadow: 
-            inset 0 0 20px rgba(139, 92, 246, 0.1),
-            0 0 30px rgba(139, 92, 246, 0.15);
+            inset 0 0 20px rgba(42, 196, 183, 0.1),
+            0 0 30px rgba(42, 196, 183, 0.15);
         }
 
         .panel-1 {
@@ -157,9 +157,9 @@ export default function Home() {
           position: absolute;
           width: 4px;
           height: 4px;
-          background: rgba(139, 92, 246, 0.8);
+          background: rgba(42, 196, 183, 0.8);
           border-radius: 50%;
-          box-shadow: 0 0 10px rgba(139, 92, 246, 0.6);
+          box-shadow: 0 0 10px rgba(42, 196, 183, 0.6);
         }
 
         .particle-1 {

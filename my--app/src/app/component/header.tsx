@@ -12,10 +12,10 @@ export default function Header() {
 
   const navItems = ["Home", "Services", "Projects", "Resume", "My selfy", "Contact"]
   const titles = [
-    "Full stack developer",
-    "IT undergraduate",
-    "UI UX designer",
-    "Sports Enthusiast",
+    "Full Stack Developer",
+    "IT Undergraduate",
+    "UI UX Designer",
+    "Tech Enthusiast",
   ]
 
   const scrollToSection = (sectionId: string) => {
@@ -28,8 +28,8 @@ export default function Header() {
 
   const handleDownloadCV = () => {
     const link = document.createElement("a")
-    link.href = "/cv/dulanjana_dilshan.pdf"
-    link.download = "dulanjana_dilshan.pdf"
+    link.href = "/cv/Malinka Wickramasinghe.pdf"
+    link.download = "Malinka Wickramasinghe.pdf"
     document.body.appendChild(link)
     link.click()
     document.body.removeChild(link)
@@ -71,7 +71,7 @@ export default function Header() {
                 >
                   {item}
                   <span
-                    className={`absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-purple-400 to-purple-600 transform origin-left transition-all duration-300 ${
+                    className={`absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-purple-400 to-pink-500 transform origin-left transition-all duration-300 ${
                       activeSection === item
                         ? "scale-x-100"
                         : "scale-x-0 group-hover:scale-x-100"
@@ -109,7 +109,7 @@ export default function Header() {
             isMenuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
           }`}
         >
-          <div className="bg-black/95 backdrop-blur-lg border-t border-purple-600/30">
+            <div className="bg-black/95 backdrop-blur-lg border-t border-purple-600/30">
             <div className="container mx-auto px-6 py-4">
               <div className="flex flex-col space-y-4">
                 {navItems.map((item) => (
@@ -127,7 +127,7 @@ export default function Header() {
                   >
                     <span className="relative z-10">{item}</span>
                     {activeSection === item && (
-                      <span className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-purple-400 to-purple-600 rounded-r-full"></span>
+                      <span className="absolute left-0 top-0 bottom-0 w-1 rounded-r-full" style={{background: 'linear-gradient(to bottom, var(--gradient-start), var(--gradient-end))'}}></span>
                     )}
                   </button>
                 ))}
@@ -148,8 +148,8 @@ export default function Header() {
                 }`}
               >
                 <span className="block text-white">Hello I&apos;m</span>
-                <span className="block text-transparent bg-gradient-to-r from-purple-400 via-purple-600 to-purple-800 bg-clip-text">
-                  DULANJANA DILSHAN
+                <span className="block gradient-text">
+                  MALINKA WICKRAMASINGHE
                 </span>
               </h1>
 
@@ -160,7 +160,7 @@ export default function Header() {
               >
                 And I&apos;m a{" "}
                 <span
-                  className={`text-purple-400 font-semibold transition-all duration-300 inline-block ${
+                  className={`text-orange-400 font-semibold transition-all duration-300 inline-block ${
                     titleVisible
                       ? "opacity-100 translate-y-0"
                       : "opacity-0 translate-y-2"
@@ -175,11 +175,13 @@ export default function Header() {
                   isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
                 }`}
               >
-                Motivated IT undergraduate with a passion for learning and applying new
-                technologies. Strong team player with leadership skills, adaptability,
-                and a commitment to achieving goals efficiently. Eager to contribute as a
-                software engineering intern and expand knowledge in Information
-                Technology.
+               Motivated IT undergraduate with a strong passion for software 
+               development and modern technologies. I enjoy creating clean, user-friendly interfaces 
+               and building efficient full-stack solutions. Known for my adaptability, teamwork, and 
+               leadership, I thrive in collaborative environments and take initiative when solving challenges. 
+               Alongside my technical interests, I have a creative side that inspires my work—bringing an eye for 
+               aesthetics and design into everything I build. I am currently seeking a Software Engineering 
+               Internship to apply my skills, gain industry experience, and continue growing as a developer.
               </p>
 
               <div
@@ -188,27 +190,39 @@ export default function Header() {
                 }`}
               >
                   <a
-                    href="https://www.linkedin.com/in/dulanjana-dilshan-6bb13a2ba"
+                    href="https://www.linkedin.com/in/malinka-wickramasinghe/"
                     target="_blank"
                     rel="noopener noreferrer"
                     title="LinkedIn"
-                    className="p-3 rounded-full border border-purple-600 hover:bg-purple-600 transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-purple-600/50"
+                    className="p-3 rounded-full border transition-all duration-300 hover:scale-110 hover:shadow-lg"
+                    style={{
+                      borderImage: 'linear-gradient(to right, var(--gradient-start), var(--gradient-mid), var(--gradient-end)) 1',
+                      background: 'linear-gradient(135deg, var(--gradient-start)/10, var(--gradient-mid)/10, var(--gradient-end)/10)'
+                    }}
                   >
                     <Linkedin size={24} className="text-purple-400 hover:text-white" />
                   </a>
                 <a
-                  href="mailto:Dulanjanassd@gmail.com"
+                  href="mailto:malinkawickramasinghe@gmail.com"
                   title="Email"
-                  className="p-3 rounded-full border border-purple-600 hover:bg-purple-600 transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-purple-600/50"
+                  className="p-3 rounded-full border transition-all duration-300 hover:scale-110 hover:shadow-lg"
+                  style={{
+                    borderImage: 'linear-gradient(to right, var(--gradient-start), var(--gradient-mid), var(--gradient-end)) 1',
+                    background: 'linear-gradient(135deg, var(--gradient-start)/10, var(--gradient-mid)/10, var(--gradient-end)/10)'
+                  }}
                 >
                   <Mail size={24} className="text-purple-400 hover:text-white" />
                 </a>
                 <a
-                  href="https://github.com"
+                  href="https://github.com/MalinkaKAW"
                   target="_blank"
                   rel="noopener noreferrer"
                   title="GitHub"
-                  className="p-3 rounded-full border border-purple-600 hover:bg-purple-600 transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-purple-600/50"
+                  className="p-3 rounded-full border transition-all duration-300 hover:scale-110 hover:shadow-lg"
+                  style={{
+                    borderImage: 'linear-gradient(to right, var(--gradient-start), var(--gradient-mid), var(--gradient-end)) 1',
+                    background: 'linear-gradient(135deg, var(--gradient-start)/10, var(--gradient-mid)/10, var(--gradient-end)/10)'
+                  }}
                 >
                   <Github size={24} className="text-purple-400 hover:text-white" />
                 </a>
@@ -216,7 +230,11 @@ export default function Header() {
 
               <button
                 onClick={handleDownloadCV}
-                className="group relative px-8 py-4 bg-purple-600 text-white rounded-full font-semibold text-lg overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-purple-600/50 hover:bg-purple-700"
+                className="group relative px-8 py-4 text-white rounded-full font-semibold text-lg overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-xl"
+                style={{
+                  background: 'linear-gradient(to right, var(--gradient-start), var(--gradient-mid), var(--gradient-end))',
+                  boxShadow: '0 0 20px rgba(183, 29, 238, 0.3)'
+                }}
               >
                 <div className="relative flex items-center gap-2 z-10">
                   <Download size={20} />
@@ -238,13 +256,17 @@ export default function Header() {
                   <div className="absolute inset-0 flex items-center justify-center -z-10">
                     <span className="glow-radial w-40 h-40 sm:w-48 sm:h-48 md:w-64 md:h-64 lg:w-80 lg:h-80 xl:w-[28rem] xl:h-[28rem] rounded-full" aria-hidden="true"></span>
                   </div>
-                  <div className="relative rounded-full overflow-hidden border-4 border-purple-600/50 hover:scale-105 transition-transform duration-500 hover:shadow-2xl hover:shadow-purple-600/50 animate-float w-full h-full">
+                  <div className="relative rounded-full overflow-hidden border-4 hover:scale-105 transition-transform duration-500 hover:shadow-2xl animate-float w-full h-full" style={{
+                    borderColor: 'transparent',
+                    background: 'linear-gradient(to right, var(--gradient-start), var(--gradient-mid), var(--gradient-end)) padding-box, conic-gradient(from 0deg, var(--gradient-start), var(--gradient-mid), var(--gradient-end), var(--gradient-start)) border-box',
+                    boxShadow: '0 0 30px rgba(183, 29, 238, 0.3), inset 0 0 30px rgba(183, 29, 238, 0.1)'
+                  }}>
                     <Image
-                      src="/images/propic.png"
-                      alt="Dulanjana Dilshan"
+                      src="/images/01.jpg"
+                      alt="Malinka Wickramasinghe"
                       width={800}
                       height={800}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover object-top"
                       priority
                     />
                   </div>

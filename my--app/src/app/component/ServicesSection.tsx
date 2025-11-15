@@ -78,9 +78,9 @@ const ServicesPage: React.FC = () => {
         {/* Header Section */}
         <div className={`text-center mb-20 transform transition-all duration-1200 ease-out ${isVisible ? 'translate-y-0 opacity-100' : '-translate-y-16 opacity-0'}`}>
           <h2 className="text-5xl lg:text-6xl font-bold mb-6 animate-text-shimmer">
-            My <span className="text-transparent bg-gradient-to-r from-purple-400 via-purple-600 to-purple-800 bg-clip-text">Services</span>
+            My <span className="gradient-text">Services</span>
           </h2>
-          <div className={`w-24 h-1 bg-gradient-to-r from-purple-400 to-purple-800 mx-auto rounded-full transform transition-all duration-1000 delay-300 ${isVisible ? 'scale-x-100' : 'scale-x-0'}`}></div>
+          <div className={`w-24 h-1 mx-auto rounded-full transform transition-all duration-1000 delay-300 ${isVisible ? 'scale-x-100' : 'scale-x-0'}`} style={{background: 'linear-gradient(to right, var(--gradient-start), var(--gradient-mid), var(--gradient-end))'}}></div>
         </div>
 
         {/* Services Grid */}
@@ -95,14 +95,17 @@ const ServicesPage: React.FC = () => {
                 className={`group relative transform transition-all duration-1000 ease-out ${isVisible ? 'translate-x-0 translate-y-0 opacity-100' : `${slideDirection} opacity-0`}`}
                 style={{ transitionDelay: `${400 + index * 300}ms` }}
               >
-                <div className="relative h-full bg-gradient-to-br from-gray-900/80 to-gray-800/60 backdrop-blur-lg rounded-2xl border border-gray-700/50 p-6 sm:p-8 transition-all duration-500 overflow-hidden flex flex-col group-hover:transform group-hover:-translate-y-2 group-hover:shadow-2xl group-hover:shadow-purple-500/20 group-hover:border-purple-500/40">
+                <div className="relative h-full bg-gradient-to-br from-gray-900/80 to-gray-800/60 backdrop-blur-lg rounded-2xl border border-gray-700/50 p-6 sm:p-8 transition-all duration-500 overflow-hidden flex flex-col group-hover:transform group-hover:-translate-y-2 group-hover:shadow-2xl group-hover:border-transparent" style={{
+                  boxShadow: index === 0 ? '0 0 30px rgba(183, 29, 238, 0.2)' : index === 1 ? '0 0 30px rgba(201, 77, 135, 0.2)' : '0 0 30px rgba(216, 118, 49, 0.2)'
+                }}>
                   
-                  {/* Background Effects */}
-                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
-                    <div className="absolute inset-0 bg-gradient-to-br from-purple-600/5 via-purple-700/3 to-transparent animate-gradient-shift rounded-2xl"></div>
-                  </div>
+                    <div className="absolute inset-0 bg-gradient-to-br animate-gradient-shift rounded-2xl" style={{
+                      background: index === 0 ? 'linear-gradient(to bottom right, var(--gradient-start)/5, var(--gradient-mid)/3, transparent)' : index === 1 ? 'linear-gradient(to bottom right, var(--gradient-mid)/5, var(--gradient-end)/3, transparent)' : 'linear-gradient(to bottom right, var(--gradient-end)/5, var(--gradient-start)/3, transparent)'
+                    }}></div>
                   <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-700">
-                    <div className="absolute -inset-2 bg-gradient-to-r from-purple-400/10 via-purple-600/15 to-purple-800/10 blur-2xl rounded-2xl animate-pulse-soft"></div>
+                    <div className="absolute -inset-2 blur-2xl rounded-2xl animate-pulse-soft" style={{
+                      background: index === 0 ? 'linear-gradient(to right, var(--gradient-start)/10, var(--gradient-mid)/15, var(--gradient-end)/10)' : index === 1 ? 'linear-gradient(to right, var(--gradient-mid)/10, var(--gradient-end)/15, var(--gradient-start)/10)' : 'linear-gradient(to right, var(--gradient-end)/10, var(--gradient-start)/15, var(--gradient-mid)/10)'
+                    }}></div>
                   </div>
 
                   {/* Content */}
@@ -111,12 +114,20 @@ const ServicesPage: React.FC = () => {
                       <span className="text-6xl font-bold text-white/30 group-hover:text-white/60 transition-all duration-500 transform group-hover:scale-105">
                         {service.number}
                       </span>
-                      <div className="p-4 rounded-full bg-purple-600/10 group-hover:bg-purple-600/20 transition-all duration-500 transform group-hover:rotate-12 group-hover:scale-110">
-                        <IconComponent size={32} className="text-purple-400 group-hover:text-purple-300 transition-colors duration-500" />
+                      <div className="p-4 rounded-full transition-all duration-500 transform group-hover:rotate-12 group-hover:scale-110" style={{
+                        background: index === 0 ? 'linear-gradient(135deg, var(--gradient-start)/10, var(--gradient-mid)/20)' : index === 1 ? 'linear-gradient(135deg, var(--gradient-mid)/10, var(--gradient-end)/20)' : 'linear-gradient(135deg, var(--gradient-end)/10, var(--gradient-start)/20)'
+                      }}>
+                        <div style={{
+                          color: index === 0 ? 'var(--gradient-start)' : index === 1 ? 'var(--gradient-mid)' : 'var(--gradient-end)'
+                        }}>
+                          <IconComponent size={32} className="transition-colors duration-500" />
+                        </div>
                       </div>
                     </div>
 
-                    <h3 className="text-2xl font-bold mb-4 group-hover:text-purple-300 transition-all duration-500 transform group-hover:translate-x-2">
+                    <h3 className="text-2xl font-bold mb-4 transition-all duration-500 transform group-hover:translate-x-2" style={{
+                      color: index === 0 ? 'var(--gradient-start)' : index === 1 ? 'var(--gradient-mid)' : 'var(--gradient-end)'
+                    }}>
                       {service.title}
                     </h3>
                     <p className="text-gray-300 leading-relaxed mb-8 group-hover:text-gray-200 transition-colors duration-500 flex-grow">
@@ -154,7 +165,9 @@ const ServicesPage: React.FC = () => {
                   </div>
 
                   <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-all duration-700">
-                    <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-purple-400/20 via-purple-600/30 to-purple-400/20 p-[1px] animate-border-flow">
+                    <div className="absolute inset-0 rounded-2xl p-[1px] animate-border-flow" style={{
+                      background: index === 0 ? 'linear-gradient(to right, var(--gradient-start)/20, var(--gradient-mid)/30, var(--gradient-start)/20)' : index === 1 ? 'linear-gradient(to right, var(--gradient-mid)/20, var(--gradient-end)/30, var(--gradient-mid)/20)' : 'linear-gradient(to right, var(--gradient-end)/20, var(--gradient-start)/30, var(--gradient-end)/20)'
+                    }}>
                       <div className="w-full h-full rounded-2xl bg-transparent"></div>
                     </div>
                   </div>

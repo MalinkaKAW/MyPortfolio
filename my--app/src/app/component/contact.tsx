@@ -112,11 +112,11 @@ const ContactPage: React.FC = () => {
           isVisible ? 'translate-y-0 opacity-100' : '-translate-y-16 opacity-0'
         }`}>
           <h1 className="text-4xl lg:text-5xl font-bold mb-6">
-            Let&apos;s <span className="text-transparent bg-gradient-to-r from-purple-400 via-purple-600 to-purple-800 bg-clip-text">work together</span>
+            Let&apos;s <span className="gradient-text">work together</span>
           </h1>
-          <div className={`w-24 h-1 bg-gradient-to-r from-purple-400 to-purple-800 mx-auto rounded-full transform transition-all duration-1000 delay-300 ${
+          <div className={`w-24 h-1 mx-auto rounded-full transform transition-all duration-1000 delay-300 ${
             isVisible ? 'scale-x-100' : 'scale-x-0'
-          }`}></div>
+          }`} style={{background: 'linear-gradient(to right, var(--gradient-start), var(--gradient-mid), var(--gradient-end))'}}></div>
           <p className="text-gray-400 mt-6 text-lg max-w-4xl mx-auto leading-relaxed">
             Whether you need a website, mobile app, or a striking design, I&apos;m ready to turn your ideas into reality. 
             Let&apos;s collaborate and create something exceptional together. I look forward to connecting with you!
@@ -143,8 +143,12 @@ const ContactPage: React.FC = () => {
                     className={`w-full px-6 py-4 bg-gray-800/50 border rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 transition-all duration-300 ${
                       errors.name 
                         ? 'border-red-500 focus:ring-red-500/50' 
-                        : 'border-gray-600 focus:border-purple-500 focus:ring-purple-500/50 hover:border-gray-500'
+                        : 'border-gray-600 hover:border-gray-500'
                     }`}
+                    style={!errors.name ? ({
+                      borderColor: 'var(--gradient-start)',
+                      ['--tw-ring-color']: 'rgba(183, 29, 238, 0.5)'
+                    } as React.CSSProperties & Record<string, string>) : {}}
                   />
                   {errors.name && (
                     <p className="mt-2 text-red-400 text-sm flex items-center gap-1">
@@ -237,7 +241,11 @@ const ContactPage: React.FC = () => {
               <button
                 onClick={handleSubmit}
                 disabled={isSubmitting}
-                className="w-full py-4 bg-purple-600 hover:bg-purple-700 disabled:bg-purple-600/50 text-white font-semibold rounded-lg transition-all duration-300 transform hover:scale-[1.02] hover:shadow-xl hover:shadow-purple-600/50 disabled:transform-none disabled:shadow-none flex items-center justify-center gap-3"
+                className="w-full py-4 text-white font-semibold rounded-lg transition-all duration-300 transform hover:scale-[1.02] hover:shadow-xl disabled:transform-none disabled:shadow-none flex items-center justify-center gap-3"
+                style={{
+                  background: 'linear-gradient(to right, var(--gradient-start), var(--gradient-mid), var(--gradient-end))',
+                  boxShadow: isSubmitting ? 'none' : '0 0 20px rgba(183, 29, 238, 0.3)'
+                }}
               >
                 {isSubmitting ? (
                   <>
@@ -272,15 +280,19 @@ const ContactPage: React.FC = () => {
           {/* Contact Information */}
           <div className="space-y-8">
             {/* Phone */}
-            <div className="flex items-start gap-4 p-6 bg-gradient-to-br from-gray-900/80 to-gray-800/60 backdrop-blur-lg rounded-2xl border border-gray-700/50 hover:border-purple-500/50 transition-all duration-500 transform hover:-translate-y-1">
-              <div className="flex-shrink-0 w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center">
+            <div className="flex items-start gap-4 p-6 bg-gradient-to-br from-gray-900/80 to-gray-800/60 backdrop-blur-lg rounded-2xl border border-gray-700/50 transition-all duration-500 transform hover:-translate-y-1" style={{
+              borderColor: 'var(--gradient-start)',
+              boxShadow: '0 0 20px rgba(183, 29, 238, 0.1)'
+            }}>
+              <div className="flex-shrink-0 w-12 h-12 rounded-full flex items-center justify-center" style={{background: 'var(--gradient-start)'}}>
                 <Phone size={20} className="text-white" />
               </div>
               <div>
                 <h3 className="text-white font-semibold mb-1">Phone</h3>
                 <a 
                   href="tel:+94717646067" 
-                  className="text-gray-300 hover:text-purple-400 transition-colors duration-300"
+                  className="text-gray-300 transition-colors duration-300"
+                  style={{color: 'var(--gradient-start)'}}
                 >
                   (+94) 71 764 6067
                 </a>
@@ -288,15 +300,19 @@ const ContactPage: React.FC = () => {
             </div>
 
             {/* Email */}
-            <div className="flex items-start gap-4 p-6 bg-gradient-to-br from-gray-900/80 to-gray-800/60 backdrop-blur-lg rounded-2xl border border-gray-700/50 hover:border-purple-500/50 transition-all duration-500 transform hover:-translate-y-1">
-              <div className="flex-shrink-0 w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center">
+            <div className="flex items-start gap-4 p-6 bg-gradient-to-br from-gray-900/80 to-gray-800/60 backdrop-blur-lg rounded-2xl border border-gray-700/50 transition-all duration-500 transform hover:-translate-y-1" style={{
+              borderColor: 'var(--gradient-mid)',
+              boxShadow: '0 0 20px rgba(201, 77, 135, 0.1)'
+            }}>
+              <div className="flex-shrink-0 w-12 h-12 rounded-full flex items-center justify-center" style={{background: 'var(--gradient-mid)'}}>
                 <Mail size={20} className="text-white" />
               </div>
               <div>
                 <h3 className="text-white font-semibold mb-1">Email</h3>
                 <a 
                   href="mailto:dulanjanassd@gmail.com" 
-                  className="text-gray-300 hover:text-purple-400 transition-colors duration-300 break-all"
+                  className="text-gray-300 transition-colors duration-300"
+                  style={{color: 'var(--gradient-mid)'}}
                 >
                   Dulanjanassd@gmail.com
                 </a>
@@ -304,8 +320,11 @@ const ContactPage: React.FC = () => {
             </div>
 
             {/* Address */}
-            <div className="flex items-start gap-4 p-6 bg-gradient-to-br from-gray-900/80 to-gray-800/60 backdrop-blur-lg rounded-2xl border border-gray-700/50 hover:border-purple-500/50 transition-all duration-500 transform hover:-translate-y-1">
-              <div className="flex-shrink-0 w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center">
+            <div className="flex items-start gap-4 p-6 bg-gradient-to-br from-gray-900/80 to-gray-800/60 backdrop-blur-lg rounded-2xl border border-gray-700/50 transition-all duration-500 transform hover:-translate-y-1" style={{
+              borderColor: 'var(--gradient-end)',
+              boxShadow: '0 0 20px rgba(216, 118, 49, 0.1)'
+            }}>
+              <div className="flex-shrink-0 w-12 h-12 rounded-full flex items-center justify-center" style={{background: 'var(--gradient-end)'}}>
                 <MapPin size={20} className="text-white" />
               </div>
               <div>

@@ -92,14 +92,21 @@ const ProjectsPage: React.FC = () => {
       githubLink: "https://github.com/yourusername/pramuka",
       category: "Web Application"
     },
-    {
-      id: 4,
+        {
+      id: 5,
       title: "Baby Drive",
-      description: "Educational game for children using IoT sensors and ESP32 microcontroller.",
-      image: "/images/babydrive.jpg",
+      description: `Developed a custom hardware setup for turntable photography, enabling 360-degree product
+      photography. The system featured a rotating platform controlled by stepper motors for precise and
+      consistent rotation. Integrated light strips and LDR sensors to adjust lighting conditions automatically
+      based on the ambient light, ensuring optimal illumination for high-quality image capture. The setup was
+      compatible with various camera systems, allowing for automated, synchronized photography at specific
+      intervals for professional use.`,
+      image: "/images/turn table.jpg",
       technologies: [
         { name: "Arduino", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/arduino/arduino-original.svg", color: "#00979D" },
         { name: "C++", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg", color: "#00599C" },
+        { name: "Tailwind CSS", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg", color: "#06B6D4" },        
+        { name: "Next.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg", color: "#000000" },
         { name: "IoT", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg", color: "#FF9900" }
       ],
       liveLink: "https://revoclean-demo.com",
@@ -126,7 +133,7 @@ const ProjectsPage: React.FC = () => {
           isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
         }`}>
           <h2 className="text-5xl lg:text-6xl font-bold mb-6">
-            My <span className="text-transparent bg-gradient-to-r from-purple-400 to-purple-600 bg-clip-text">Projects</span>
+            My <span className="text-transparent bg-gradient-to-r from-pink-400 to-orange-400 bg-clip-text">Projects</span>
           </h2>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
             Explore my latest work in web development and technology
@@ -144,7 +151,10 @@ const ProjectsPage: React.FC = () => {
               style={{ transitionDelay: `${200 + index * 150}ms` }}
             >
               {/* Simple Card Design */}
-              <div className="bg-gray-900 rounded-xl border border-gray-800 overflow-hidden hover:border-purple-500 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:shadow-purple-500/10 group h-full flex flex-col">
+              <div className="bg-gray-900 rounded-xl border border-gray-800 overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-xl group h-full flex flex-col" style={{
+                borderColor: index % 3 === 0 ? 'var(--gradient-start)' : index % 3 === 1 ? 'var(--gradient-mid)' : 'var(--gradient-end)',
+                boxShadow: index % 3 === 0 ? '0 0 20px rgba(183, 29, 238, 0.1)' : index % 3 === 1 ? '0 0 20px rgba(201, 77, 135, 0.1)' : '0 0 20px rgba(216, 118, 49, 0.1)'
+              }}>
                 
                 {/* Image Section */}
                 <div className="relative h-48 overflow-hidden">
@@ -160,7 +170,9 @@ const ProjectsPage: React.FC = () => {
                   
                   {/* Category Badge */}
                   <div className="absolute top-3 left-3">
-                    <span className="px-3 py-1 bg-purple-600 text-white text-xs font-medium rounded-full">
+                    <span className="px-3 py-1 text-white text-xs font-medium rounded-full" style={{
+                      background: index % 3 === 0 ? 'var(--gradient-start)' : index % 3 === 1 ? 'var(--gradient-mid)' : 'var(--gradient-end)'
+                    }}>
                       {project.category}
                     </span>
                   </div>
@@ -171,7 +183,10 @@ const ProjectsPage: React.FC = () => {
                       href={project.liveLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center justify-center w-8 h-8 bg-purple-600 hover:bg-purple-700 text-white rounded-full transition-colors duration-200"
+                      className="flex items-center justify-center w-8 h-8 text-white rounded-full transition-colors duration-200"
+                      style={{
+                        background: index % 3 === 0 ? 'var(--gradient-start)' : index % 3 === 1 ? 'var(--gradient-mid)' : 'var(--gradient-end)'
+                      }}
                       title="View Live Project"
                     >
                       <ExternalLink size={14} />
@@ -181,7 +196,9 @@ const ProjectsPage: React.FC = () => {
 
                 {/* Content Section */}
                 <div className="p-6 flex flex-col flex-grow">
-                  <h3 className="text-xl font-semibold mb-3 group-hover:text-purple-300 transition-colors duration-200">
+                  <h3 className="text-xl font-semibold mb-3 transition-colors duration-200" style={{
+                    color: index % 3 === 0 ? 'var(--gradient-start)' : index % 3 === 1 ? 'var(--gradient-mid)' : 'var(--gradient-end)'
+                  }}>
                     {project.title}
                   </h3>
                   <p className="text-gray-400 text-sm leading-relaxed mb-4">
@@ -220,7 +237,11 @@ const ProjectsPage: React.FC = () => {
                       href={project.githubLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center justify-center p-2 border border-gray-700 hover:border-purple-500 hover:text-purple-400 rounded-lg transition-colors duration-200"
+                      className="flex items-center justify-center p-2 border rounded-lg transition-colors duration-200"
+                      style={{
+                        borderColor: index % 3 === 0 ? 'var(--gradient-start)' : index % 3 === 1 ? 'var(--gradient-mid)' : 'var(--gradient-end)',
+                        color: index % 3 === 0 ? 'var(--gradient-start)' : index % 3 === 1 ? 'var(--gradient-mid)' : 'var(--gradient-end)'
+                      }}
                       title="View Source Code"
                     >
                       <Github size={16} />
